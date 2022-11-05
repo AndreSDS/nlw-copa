@@ -7,7 +7,10 @@ import {
 } from "@expo-google-fonts/roboto";
 import { Loading, CustomStatusBar } from "./src/components";
 import { THEME } from "./src/styles/theme";
-import { Signin } from "./src/screens";
+import { Signin, New } from "./src/screens";
+import { AuthContextProvider } from "./src/contexts/AuthContext";
+import { Find } from "./src/screens/Find";
+import { Pools } from "./src/screens/Pools";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +22,14 @@ export default function App() {
   return (
     <NativeBaseProvider theme={THEME}>
       <CustomStatusBar />
-      {!fontsLoaded ? <Loading /> : <Signin />}
+      <AuthContextProvider>
+        {!fontsLoaded ? <Loading /> : 
+        // <Signin />
+        // <New />
+        // <Find />
+        <Pools />
+        }
+      </AuthContextProvider>
     </NativeBaseProvider>
   );
 }

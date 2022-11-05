@@ -1,3 +1,4 @@
-import {Signin} from './Signin';
+import { Signin } from "./Signin";
+import { New } from "./New";
 
-export {Signin};
+export { Signin, New };
